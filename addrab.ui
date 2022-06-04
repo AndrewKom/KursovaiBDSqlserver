@@ -204,7 +204,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Id Рабочего</string>
+      <string>Имя рабочего</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -257,7 +257,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Id счетчика/отчет</string>
+      <string>Серийный номер</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -300,7 +300,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Id приказа/отчет</string>
+      <string>Название приказа</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

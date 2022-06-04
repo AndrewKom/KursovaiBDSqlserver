@@ -7,24 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>304</width>
-    <height>264</height>
+    <height>231</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="8" column="0">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>Изменить данные</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0">
-    <widget class="QComboBox" name="comboBox"/>
-   </item>
-   <item row="4" column="0">
+   <item row="2" column="0">
     <widget class="QLabel" name="label_2">
      <property name="font">
       <font>
@@ -39,43 +29,7 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0">
-    <widget class="QLineEdit" name="lineEdit"/>
-   </item>
-   <item row="1" column="0">
-    <widget class="QLineEdit" name="lineEdit_2">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="font">
-      <font>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="acceptDrops">
-      <bool>true</bool>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label">
-     <property name="font">
-      <font>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Имя работника</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="0">
+   <item row="4" column="0">
     <widget class="QLabel" name="label_3">
      <property name="font">
       <font>
@@ -90,21 +44,34 @@
      </property>
     </widget>
    </item>
-   <item row="7" column="0">
-    <widget class="QComboBox" name="comboBox_2"/>
+   <item row="1" column="0">
+    <widget class="QLineEdit" name="lineEdit"/>
    </item>
    <item row="0" column="0">
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="label">
      <property name="font">
       <font>
        <bold>true</bold>
       </font>
      </property>
      <property name="text">
-      <string>ID</string>
+      <string>Имя работника</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QComboBox" name="comboBox"/>
+   </item>
+   <item row="5" column="0">
+    <widget class="QComboBox" name="comboBox_2"/>
+   </item>
+   <item row="6" column="0">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Изменить данные</string>
      </property>
     </widget>
    </item>

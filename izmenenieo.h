@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <qmessagebox.h>
 #include <QSqlQuery>
+#include <QSqlError>
 
 namespace Ui {
 class izmenenieO;
@@ -20,6 +21,7 @@ public:
     int postcombat;
     int postcombat2;
     int postcombat3;
+    int wp;
 
 private slots:
     void obr_sendID(int);

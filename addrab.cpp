@@ -24,7 +24,7 @@ addRab::addRab(QWidget *parent) :
         ui->comboBox_3->addItem("Bershka");
 
     QSqlQuery* query3=new QSqlQuery();
-    query3->exec("select DISTINCT id_Rabotnik from Rabotnik");
+    query3->exec("select DISTINCT name_Rabotnik from Rabotnik");
     while(query3->next()){
         ui->comboBox_4->addItem(query3->value(0).toString());
     }
@@ -34,7 +34,7 @@ addRab::addRab(QWidget *parent) :
         ui->comboBox_5->addItem("PC room");
 
     QSqlQuery* query5=new QSqlQuery();
-    query5->exec("select DISTINCT id_Prikaz  from Prikaz");
+    query5->exec("select DISTINCT Name_Prikaz  from Prikaz");
     while(query5->next()){
         ui->comboBox_6->addItem(query5->value(0).toString());
     }
@@ -45,7 +45,7 @@ addRab::addRab(QWidget *parent) :
     }
 
     QSqlQuery* query7=new QSqlQuery();
-    query7->exec("select DISTINCT id_Prikaz  from Prikaz");
+    query7->exec("select DISTINCT Name_Prikaz  from Prikaz");
     while(query7->next()){
         ui->comboBox_8->addItem(query7->value(0).toString());
     }
@@ -87,7 +87,7 @@ void addRab::on_pushButton_clicked()
 
     QMessageBox* ms=new QMessageBox();
     if(!query->exec()){
-        ms->setText("Запрос не выполнился");
+        ms->setText("Запрос не выполнился"+query->lastError().databaseText());
         ms->show();
     }
 
@@ -113,16 +113,28 @@ void addRab::on_comboBox_2_currentIndexChanged(int index)
 void addRab::on_pushButton_2_clicked()
 {
     QSqlQuery* query=new QSqlQuery();
+
+    QSqlQuery* querynew=new QSqlQuery();
+    querynew->prepare("select id_Rabotnik from Rabotnik where name_Rabotnik= :idsr ");
+    querynew->bindValue(":idsr",ui->comboBox_4->itemText(postcombat4));
+    QMessageBox* ms1=new QMessageBox();
+    if(!querynew->exec()){
+        ms1->setText("Запрос не выполнился");
+        ms1->show();
+    }
+    querynew->first();
+
+
     query->prepare("exec  addshetchik :start,:End,:marka,:idR,:Pomeshenie;");
     query->bindValue(":start",ui->dateEdit->text());
     query->bindValue(":End",ui->dateEdit_2->text());
     query->bindValue(":marka",ui->comboBox_3->itemText(postcombat3));
-    query->bindValue(":idR",ui->comboBox_4->itemText(postcombat4));
+    query->bindValue(":idR",querynew->value(0).toInt());
     query->bindValue(":Pomeshenie",ui->comboBox_5->itemText(postcombat5));
 
     QMessageBox* ms=new QMessageBox();
     if(!query->exec()){
-        ms->setText("Запрос не выполнился");
+        ms->setText("Запрос не выполнился"+query->lastError().databaseText());
         ms->show();
     }
 
@@ -156,14 +168,25 @@ void addRab::on_pushButton_3_clicked()
     }
     else{
     QSqlQuery* query=new QSqlQuery();
+
+    QSqlQuery* querynew=new QSqlQuery();
+    querynew->prepare("select id_Prikaz from Prikaz where Name_Prikaz= :idsr ");
+    querynew->bindValue(":idsr",ui->comboBox_6->itemText(postcombat6));
+    QMessageBox* ms1=new QMessageBox();
+    if(!querynew->exec()){
+        ms1->setText("Запрос не выполнился");
+        ms1->show();
+    }
+    querynew->first();
+
     query->prepare("exec  addPrikaz :name,:sv,:data;");
     query->bindValue(":name",ui->lineEdit_2->text());
-    query->bindValue(":sv",ui->comboBox_6->itemText(postcombat6));
+    query->bindValue(":sv",querynew->value(0).toInt());
     query->bindValue(":data",ui->dateEdit_3->text());
 
     QMessageBox* ms=new QMessageBox();
     if(!query->exec()){
-        ms->setText("Запрос не выполнился");
+        ms->setText("Запрос не выполнился"+query->lastError().databaseText());
         ms->show();
     }
 
@@ -182,15 +205,26 @@ void addRab::on_comboBox_6_currentIndexChanged(int index)
 void addRab::on_pushButton_4_clicked()
 {
     QSqlQuery* query=new QSqlQuery();
+
+    QSqlQuery* querynew=new QSqlQuery();
+    querynew->prepare("select id_Prikaz from Prikaz where Name_Prikaz= :idsr ");
+    querynew->bindValue(":idsr",ui->comboBox_8->itemText(postcombat8));
+    QMessageBox* ms1=new QMessageBox();
+    if(!querynew->exec()){
+        ms1->setText("Запрос не выполнился");
+        ms1->show();
+    }
+    querynew->first();
+
     query->prepare("exec  addOtchet :shetchikId,:data,:PrikazId,:work;");
     query->bindValue(":shetchikId",ui->comboBox_7->itemText(postcombat7));
      query->bindValue(":data",ui->dateEdit_4->text());
-    query->bindValue(":PrikazId",ui->comboBox_8->itemText(postcombat8));
+    query->bindValue(":PrikazId",querynew->value(0).toInt());
     query->bindValue(":work",ui->comboBox_9->itemText(postcombat9));
 
     QMessageBox* ms=new QMessageBox();
     if(!query->exec()){
-        ms->setText("Запрос не выполнился");
+        ms->setText("Запрос не выполнился"+query->lastError().databaseText());
         ms->show();
     }
 

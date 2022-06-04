@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <qmessagebox.h>
 #include <QSqlQuery>
+#include <QSqlError>
 
 namespace Ui {
 class addRab;

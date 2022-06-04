@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <qmessagebox.h>
 #include <QSqlQuery>
+#include <QSqlError>
 
 namespace Ui {
 class izmenenierab;
@@ -23,6 +24,7 @@ public:
 
     int postcombat;
     int postcombat1;
+    int wp;
 private slots:
     void on_comboBox_currentIndexChanged(int index);
 

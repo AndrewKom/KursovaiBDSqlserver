@@ -89,9 +89,9 @@ background-color: rgb(253, 180, 69)
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>240</x>
       <y>30</y>
-      <width>521</width>
+      <width>241</width>
       <height>241</height>
      </rect>
     </property>

@@ -7,14 +7,55 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>384</height>
+    <height>324</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="8" column="0">
+    <widget class="QComboBox" name="comboBox_3"/>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Помещение</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QDateEdit" name="dateEdit">
+     <property name="displayFormat">
+      <string>yyyy.MM.dd</string>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QComboBox" name="comboBox_2"/>
+   </item>
    <item row="2" column="0">
+    <widget class="QDateEdit" name="dateEdit_2">
+     <property name="displayFormat">
+      <string>yyyy.MM.dd</string>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
     <widget class="QLabel" name="label_2">
      <property name="font">
       <font>
@@ -29,7 +70,32 @@
      </property>
     </widget>
    </item>
+   <item row="4" column="0">
+    <widget class="QComboBox" name="comboBox"/>
+   </item>
+   <item row="9" column="0">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string> Изменить данные счетчика</string>
+     </property>
+    </widget>
+   </item>
    <item row="5" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Имя работника</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
     <widget class="QLabel" name="label_3">
      <property name="font">
       <font>
@@ -38,94 +104,6 @@
      </property>
      <property name="text">
       <string>Марка</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="font">
-      <font>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Id</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QDateEdit" name="dateEdit">
-     <property name="displayFormat">
-      <string>yyyy.MM.dd</string>
-     </property>
-     <property name="calendarPopup">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="0">
-    <widget class="QComboBox" name="comboBox"/>
-   </item>
-   <item row="10" column="0">
-    <widget class="QComboBox" name="comboBox_3"/>
-   </item>
-   <item row="4" column="0">
-    <widget class="QDateEdit" name="dateEdit_2">
-     <property name="displayFormat">
-      <string>yyyy.MM.dd</string>
-     </property>
-     <property name="calendarPopup">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="11" column="0">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string> Изменить данные счетчика</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QLineEdit" name="lineEdit">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="0">
-    <widget class="QComboBox" name="comboBox_2"/>
-   </item>
-   <item row="7" column="0">
-    <widget class="QLabel" name="label_4">
-     <property name="font">
-      <font>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>IdРаботника</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="0">
-    <widget class="QLabel" name="label_5">
-     <property name="font">
-      <font>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Помещение</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

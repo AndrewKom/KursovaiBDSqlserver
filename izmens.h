@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <qmessagebox.h>
 #include <QSqlQuery>
+#include <QSqlError>
 namespace Ui {
 class izmenS;
 }
@@ -19,6 +20,7 @@ public:
     int postcombat;
     int postcombat2;
     int postcombat3;
+    int wp;
 private slots:
     void obr_sendID(int);
     void on_comboBox_currentIndexChanged(int index);

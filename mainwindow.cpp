@@ -53,15 +53,16 @@ void MainWindow::on_pushButton_clicked()
         model->setHeaderData(3, Qt::Horizontal,"Отдел");
 
         ui->tableView->setModel(model);
+        ui->tableView->setColumnHidden(0,true);
         ui->tableView->resizeColumnsToContents();
         ui->tableView->show();
 
         model1 = new QSqlQueryModel();
-        model1->setQuery("SELECT * FROM shetchik");
+        model1->setQuery("SELECT id_shetchik,Start_shetchik,END_shetchik,marka_shetchik,name_Rabotnik,Pomeshenie_shetchik FROM shetchik,Rabotnik where RabotnikId_shetchik=id_Rabotnik ");
         if (model1->lastError().isValid())
             qDebug() << model1->lastError();
 
-        model1->setHeaderData(0, Qt::Horizontal,"id");
+        model1->setHeaderData(0, Qt::Horizontal,"Серийный номер");
         model1->setHeaderData(1, Qt::Horizontal,"Установлен");
         model1->setHeaderData(2, Qt::Horizontal,"До");
         model1->setHeaderData(3, Qt::Horizontal,"Марка");
@@ -74,7 +75,7 @@ void MainWindow::on_pushButton_clicked()
         ui->tableView_2->show();
 
         model2 = new QSqlQueryModel();
-        model2->setQuery("SELECT * FROM Prikaz");
+        model2->setQuery("SELECT p.id_Prikaz,p.Name_Prikaz,z.Name_Prikaz,p.Date_Prikaz FROM Prikaz p left join Prikaz z on z.id_Prikaz=p.Svazanniy_Prikaz  ");
         if (model2->lastError().isValid())
             qDebug() << model2->lastError();
 
@@ -85,23 +86,25 @@ void MainWindow::on_pushButton_clicked()
 
 
         ui->tableView_4->setModel(model2);
+        ui->tableView_4->setColumnHidden(0,true);
         ui->tableView_4->resizeColumnsToContents();
         ui->tableView_4->show();
 
         model3 = new QSqlQueryModel();
-        model3->setQuery("SELECT * FROM Otchet");
+        model3->setQuery("SELECT id_Otchet,shetchikId_Otchet,Date_Otchet,Name_Prikaz,is_work FROM Otchet,Prikaz where PrikazId_Otchet=id_Prikaz ");
         if (model3->lastError().isValid()){
             qDebug() << model3->lastError();
-            QMessageBox::warning(this, "Внимание","Вы не подключились к базе данных");
+            QMessageBox::warning(this, "Внимание","Вы не подключились к базе данных или "+model3->lastError().text());
 
 }
         model3->setHeaderData(0, Qt::Horizontal,"id");
-        model3->setHeaderData(1, Qt::Horizontal,"Счетчик");
+        model3->setHeaderData(1, Qt::Horizontal,"Сч:серийный номер");
         model3->setHeaderData(2, Qt::Horizontal,"Дата отчета");
         model3->setHeaderData(3, Qt::Horizontal,"Приказ");
         model3->setHeaderData(4, Qt::Horizontal,"Работает");
 
         ui->tableView_3->setModel(model3);
+        ui->tableView_3->setColumnHidden(0,true);
         ui->tableView_3->resizeColumnsToContents();
         ui->tableView_3->show();
 }
@@ -114,7 +117,7 @@ void MainWindow::on_pushButton_2_clicked()
     model4->setQuery("SELECT * FROM History");
     if (model4->lastError().isValid()){
         qDebug() << model4->lastError();
-        QMessageBox::warning(this, "Внимание","Вы не подключились к базе данных");
+        QMessageBox::warning(this, "Внимание","Вы не подключились к базе данных или "+model4->lastError().databaseText());
 
 }
     else{
@@ -125,6 +128,7 @@ void MainWindow::on_pushButton_2_clicked()
 
     QTableView *view = new QTableView;
     view->setModel(model4);
+    view->setColumnHidden(0,true);
     view->resizeColumnsToContents();
     view->show();
     }
